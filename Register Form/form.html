@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="blueBg">
+            <div class="box signin">
+                <h2>Users Login Systm</h2>
+                <button class="signinbtn">Users</button>
+            </div>
+            <div class="box signup">
+                <h2>Admin Login Systm</h2>
+                <button class="signupbtn">Admin</button>
+            </div>
+        </div>
+
+        <div class="formBx">
+            <div class="form signinForm">
+
+                <h3>User Login</h3>
+                <input type="text" placeholder="Username (User)" id="userName">
+                <input type="text" placeholder="password (12345)" id="Upass">
+                <input type="submit" value="Submit" onclick="usersPage() ">
+                <a href="#" class="forgot">Forgot Password</a>
+
+            </div>
+
+            <div class="form signupForm">
+
+                <h3>Admin Login</h3>
+                <input type="text" placeholder="Admin Name (admin)" id="adminName">
+                <input type="text" placeholder=" Admin password (admin)" id="aPass">
+                <input type="submit" value="Submit" onclick="adminName()">
+                <a href="#" class="forgot" >Forgot Password</a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="form.js"></script>
+    <script>
+        function usersPage() {
+            let Username = document.getElementById("userName").value;
+            let Password = document.getElementById("Upass").value;
+
+
+            if (Username == 'User' && Password == '12345') {
+                location.href = './User/User.html';
+            }
+
+        }
+
+
+
+        function adminName() {
+
+            let aminName = document.getElementById("adminName").value;
+            let Password = document.getElementById("aPass").value;
+
+            if (aminName == 'admin' && Password == 'admin') {
+                location.href = './Admin/Amin.html';
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
