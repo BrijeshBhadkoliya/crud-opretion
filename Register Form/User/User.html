@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- Tailwind-File  -->
     <script src="css/Tailwind.css"></script>
     <!-- Boot-strap-css -->
-    <link rel="stylesheet" href="../Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Admin/css/bootstrap.min.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <center class="mb-[30px] text-[35px] text-[#2c7ea5]">
-        <h1>
-            <b>
-                <b>
-                    Welcome to Users Side
-                </b>
-            </b>
-        </h1>
+      <h1>
+        <b>
+          <b> Welcome to Users Side </b>
+        </b>
+      </h1>
     </center>
- 
+    <div class="container">
+      <div class="row" id="row">
+        
+      </div>
+    </div>
     <!-- Boot-strap-js -->
     <script src="../Admin/js/bootstrap.bundle.min.js"></script>
 
-    
     <!-- Js-code  -->
     <script>
-        
+      let kol = JSON.parse(localStorage.getItem("Product"));
+      let row = document.getElementById("row");
+      kol.map((val, index) => {
+        console.log(val);
+        row.innerHTML = `
+            <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="${val.Img}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                  <h3 class="card-title">${val.Name}</h3>
+                  <h5 class="card-title">${val.Price}</h5>
+                  <p class="card-text">${val.Detail}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 </div>
+           </div>
+           </div>
+            `;
+      });
     </script>
-</body>
-
+  </body>
 </html>
