@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+    margin: 0px auto;
+}
+.main-form{
+    max-width: 500px;
+}
+/* To convert the provided Less CSS code to standard CSS without changing any class names or functionality, we'll compile the Less code into CSS. Here is the equivalent CSS: */
+
+ 

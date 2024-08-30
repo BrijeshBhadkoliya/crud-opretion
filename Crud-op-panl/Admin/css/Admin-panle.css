@@ -1,0 +1,259 @@
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Theme Variables */
+:root {
+    --bg-color-light: #f4f6f9;
+    --bg-color-dark: #2c3e50;
+    --text-color-light: #2c3e50;
+    --text-color-dark: #ecf0f1;
+    --primary-color: #2980b9;
+}
+
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+}
+
+.containear {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .menu {
+    list-style: none;
+}
+
+.sidebar .menu li {
+    margin: 15px 0;
+}
+
+/* Profile Info Section in Sidebar */
+.profile-info {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-color-dark);
+}
+
+.profile-info-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+}
+
+.profile-info-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.profile-info-account {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #bdc3c7;
+}
+
+.profile-info-rating {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.sidebar .menu a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu a:hover, .sidebar .menu a.active {
+    background-color: #34495e;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.header-left h1 {
+    font-size: 24px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--bg-color-dark);
+    color: #fff;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-name {
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 100px; 
+}
+
+.center-content {
+    /* text-align: center; */
+    display: none;
+}
+
+.center-content.active {
+    display: block;
+   
+}
+.contector.active{
+    justify-content: center;
+    display: flex  ;
+    margin-top: 25px;
+}
+.center-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.center-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: var(--text-color-light);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Panel Below */
+.panel-below {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    color: var(--text-color-dark);
+}
+
+.panel-section {
+    flex: 1;
+    text-align: center;
+}
+
+.panel-section h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.panel-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    margin: 10px 0;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .card {
+    background-color: var(--bg-color-light);
+}
+
+body.dark-theme .panel-below {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+.main-form{
+width: 560px;
+}
