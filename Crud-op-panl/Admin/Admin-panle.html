@@ -30,9 +30,9 @@
       </ul>
     </aside>
 
-    <div class="containear">
+    <div class="containear" style="overflow: scroll">
       <!-- Header Dashboard -->
-      <header class="header">
+      <header class="header" style="position: static">
         <div class="header-left">
           <h1>Admin Dashboard</h1>
         </div>
@@ -91,7 +91,7 @@
 
         <section id="users-content" class="center-content">
           <button
-            class="bg-success text-white mt-5 p-3 rounded-2 fw-bold d-flex justify-content-end ms-auto mb-4 btn btn-primary"
+            class="bg-success text-white mt-5 p-3 rounded-2 fw-bold d-flex position-relative justify-content-end ms-auto mb-4 btn btn-primary"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight"
@@ -99,6 +99,14 @@
             onclick="Addcrat()"
           >
             Open Cart
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              onclick="numbers()"
+              id="number"
+            >
+            1
+              <span class="visually-hidden">unread messages</span>
+            </span>
           </button>
 
           <div
@@ -128,7 +136,7 @@
         <section id="analytics-content" class="center-content">
           <!-- Additional analytics content goes here -->
           <!-- Product table  -->
-          <table class="table table-striped table-hover">
+          <table class="table table-hover">
             <thead>
               <th>No.</th>
               <th>Name</th>
@@ -138,7 +146,7 @@
               <th>View</th>
               <th>Delete</th>
             </thead>
-            <tbody id="tbody"></tbody>
+            <tbody id="tbody "></tbody>
           </table>
         </section>
 
@@ -153,7 +161,6 @@
       <!-- Panel Below -->
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
-    
 
     <script>
       let kol = JSON.parse(localStorage.getItem("Product"));
@@ -162,13 +169,13 @@
         console.log(val);
         row.innerHTML += `
               <div class="col-3">
-              <div class="card" style="width: 18rem; height: 450px;  ">
-                  <img src="${val.Img}" class="card-img-top" alt="...">
+              <div class="card" style="width: 18rem; height: 500px;  ">
+                  <img src="${val.Img}" style="width: 246px; height: 246px !important;  " class="card-img-top" alt="..."  >
                     <div class="card-body">
-                    <h5 class="card-title">${val.Name}</h5>
-                    <h3 class="card-title">${val.Price}</h3>
-                    <spanclass="card-text">${val.Detail}</spanclass=>
-                    <a href="#" class="btn btn-primary" onclick="Addcrat(${val.Id})">Add to crat</a>
+                    <h5 class="card-title text-left fs-4">${val.Name}</h5>
+                    <h3 class="card-title text-left  fs-5 ">Rs :-${val.Price}</h3>
+                    <p class="card-text text-left fs-6">${val.Detail}</p>
+                    <a href="#" class="btn btn-primary   " onclick="Addcrat(${val.Id})">Add to crat</a>
                    </div>
              </div>
              </div>
@@ -177,6 +184,12 @@
       function Addcrat(Id) {
         let Crow = document.getElementById("Crow");
         let Cart = kol.filter((crat) => crat.Id == Id);
+        function numbers() {
+          let a = 1;
+          let num = a++;
+          let number = (document.getElementById("number").innerHTML = num);
+
+        }
         Cart.map((val, index) => {
           console.log(val);
           Crow.innerHTML += `
@@ -232,7 +245,7 @@
           console.log(val);
 
           let tr = document.createElement("tr");
-          tr.innerHTML = `
+          tr.innerHTML += `
             <td>${val.Id}</td>
             <td>${val.Name}</td>
             <td>${val.Price}</td>
