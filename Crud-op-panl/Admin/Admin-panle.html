@@ -104,7 +104,7 @@
               onclick="numbers()"
               id="number"
             >
-            1
+              1
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>
@@ -146,7 +146,7 @@
               <th>View</th>
               <th>Delete</th>
             </thead>
-            <tbody id="tbody "></tbody>
+            <tbody id="tbody"></tbody>
           </table>
         </section>
 
@@ -188,7 +188,6 @@
           let a = 1;
           let num = a++;
           let number = (document.getElementById("number").innerHTML = num);
-
         }
         Cart.map((val, index) => {
           console.log(val);
@@ -196,22 +195,20 @@
                
 
             <div class="card mb-3" style="max-width: 18rem;">
-  <div class="row g-0">
-    <div class="col-md-4">
+              <div class="row g-0">
+                <div class="col-md-4">
                   <img src="${val.Img}" class="card-img-top img-fluid rounded-start" alt="...">
-
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-                    <h5 class="card-title">${val.Name}</h5>
-                    <h3 class="card-title">${val.Price}</h3>
-                    <span class="card-text">${val.Detail}</span>
-                   <input type="number" value="1"style="width: 35px; border:1px solid black;">
-
-      </div>
-    </div>
-  </div>
-</div>
+                 </div>
+                <div class="col-md-8">
+                         <div class="card-body">
+                              <h5 class="card-title">${val.Name}</h5>
+                              <h3 class="card-title">${val.Price}</h3>
+                              <span class="card-text">${val.Detail}</span>
+                              <input type="number" value="1"style="width: 35px; border:1px solid black;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               `;
         });
       }
@@ -251,14 +248,51 @@
             <td>${val.Price}</td>
             <td>${val.Detail}</td>
             <td><img src='${val.Img}' width="80px" height="80px"></td>
-            <td><button onclick="view(${val.Id})">view</button></td>
-            <td><button onclick="delet(${val.Id})">Delet</button></td>
+            <td>
+              <button   type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button>
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Product Id :- 
+                       <input type="text" class="form-control" id="pName" value="${val.Id}" aria-describedby="emailHelp" disabled/>
+
+                     Name :-   <input type="text" class="form-control" id="pName" value="${val.Name}" aria-describedby="emailHelp"/>
+                       Price:- <input type="text" class="form-control" id="pPrice" value="${val.Price}"/>
+                       Detail :- <input type="address" class="form-control" id="pDetaile" value="${val.Detail}"/>
+                     Img :-   <input type="address" class="form-control" id="pImg"value="${val.Img}" />
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="Update(${val.Id})">Update</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </td>
+            <td><button onclick="delet(${val.Id})"  class="btn btn-primary" >Delet</button></td>
             `;
           tbody.appendChild(tr);
         });
       }
 
       productTable();
+      function Update(Id) {
+        let UPdates = Products.filter((val)=>val.Id==Id)
+       
+      }
+      function delet(Id){
+        Products = Products.filter((val)=>val.Id!=Id)
+        localStorage.setItem("Product", JSON.stringify(Products));
+        location.reload();
+
+      }
     </script>
     <script>
       // JavaScript to toggle between dark and light themes
